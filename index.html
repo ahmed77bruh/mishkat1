@@ -992,7 +992,7 @@
   }
 </style>
 </head>
-<body>
+<body class="intro-open">
 
 <div class="mode-toggle" title="Toggle slide view (each hadith broken into scrollable sections you page through one by one)">
   <span>Slide View</span>
@@ -10856,13 +10856,11 @@
   function setIntro(on) {
     if (on) document.body.classList.remove('toc-open');
     document.body.classList.toggle('intro-open', on);
-    if (!on) localStorage.setItem('mishkatIntroSeen', '1');
     window.scrollTo(0, 0);
   }
   introBtn.addEventListener('click', () => setIntro(!document.body.classList.contains('intro-open')));
   introClose.addEventListener('click', () => setIntro(false));
   introStartBtn.addEventListener('click', () => setIntro(false));
-  if (localStorage.getItem('mishkatIntroSeen') !== '1') setIntro(true);
 
   function tocGoto(num) {
     setToc(false);
